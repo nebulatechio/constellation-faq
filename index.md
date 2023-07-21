@@ -43,9 +43,9 @@ Here is the overview of the most common join states:
 - **ReadyToJoin**: this means your node is ready to join the network, but hasn't joined it yet. You'll need to manually join the network with [these steps.](#one-of-my-profiles-is-stuck-in-readytojoin-state-how-can-i-proceed)
 - **Observing**: this means your node has joined the network but is not actively participating to consensus yet. It observes the first couple of consensus rounds before actively participating. This state usually changes after a couple of minutes. **No actions needed** (unless it takes hours, if so, try a restart of your profiles with the command: 
 
-```
-sudo nodectl restart -p all
-```
+  ```
+  sudo nodectl restart -p all
+  ```
 <br>
 - **Ready**: this means your node is part of the network and online. All is good! **No actions needed**
 
@@ -56,33 +56,33 @@ This can have multiple causes:
 
 - **Tessellation version mismatch**: check if your tessellation version is still up to date, using the command: 
 
-```
-sudo nodectl -cv
-```
+  ```
+  sudo nodectl -cv
+  ```
 
-If your version is outdated, upgrade it using the command:
+  If your version is outdated, upgrade it using the command:
 
-```
-sudo nodectl upgrade
-```
+  ```
+  sudo nodectl upgrade
+  ```
 <br>
 - **Your node ID is not whitelisted**: you can check this with the below command 
 
-<details>
-  <summary>command for integrationnet</summary>
+  <details>
+    <summary>command for integrationnet</summary>
 
-<pre><code>sudo nodectl check_seedlist -p intnet-l0</code></pre>
+  <pre><code>sudo nodectl check_seedlist -p intnet-l0</code></pre>
 
-</details>
+  </details>
 
-<details>
-  <summary>command for testnet/mainnet</summary>
+  <details>
+    <summary>command for testnet/mainnet</summary>
 
-<pre><code>sudo nodectl check_seedlist -p dag-l0</code></pre>
+  <pre><code>sudo nodectl check_seedlist -p dag-l0</code></pre>
 
-</details>
+  </details>
 
-You should see `TRUE` under `NODE ID FOUND ON SEED LIST`. If it shows as `FALSE`, it means your node is not on the whitelist. Get in touch with a teamlead.
+  You should see `TRUE` under `NODE ID FOUND ON SEED LIST`. If it shows as `FALSE`, it means your node is not on the whitelist. Get in touch with a teamlead.
 
 
 - **Insufficient collateral** *(Mainnet only)*: verify that your wallet still contains the required collateral. This is only applicable for mainnet nodes.
