@@ -22,7 +22,7 @@ Below you can find answers to some of the most frequently asked questions for ru
 
 ## I'm trying to connect to my node but am getting the error "Connection Refused", "Timeout" or a black screen that is not responding
 
-Most likely, the firewall on your node is blocking your connection. Check the firewall settings on your VPS and make sure your IP address from your current access point is whitelisted (which you can find on [https://whatsmyip.org/](https://whatsmyip.org/))
+Most likely, the firewall on your node is blocking your connection. Check the firewall settings on your VPS and make sure your IP address from your current access point, which you can find on [https://whatsmyip.org/](https://whatsmyip.org/), is whitelisted on your SSH port (default = 22) 
 
 Another common error could be that you are connecting to the wrong IP address. Be sure to connect to your VPS (droplet) IP address in putty/terminal
 
