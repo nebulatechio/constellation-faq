@@ -7,6 +7,7 @@
 - [One of my profiles is stuck in "WaitingForDownload" state. How can I proceed?](#one-of-my-profiles-is-stuck-in-waitingfordownload-state-how-can-i-proceed)
 - [One of my profiles is stuck in "ReadyToJoin" state. How can I proceed?](#one-of-my-profiles-is-stuck-in-readytojoin-state-how-can-i-proceed)
 - [I'm getting the error "INTERNAL ERROR: cannot create temporary directory" when executing a nodectl command](#im-getting-the-error-internal-error-cannot-create-temporary-directory-when-executing-a-nodectl-command)
+- [I'm getting the error "/usr/local/bin/nodectl: 1: Syntax error: "(" unexpected" when executing a nodectl command](#im-getting-the-error-usrlocalbinnodectl-1-syntax-error--unexpected-when-executing-a-nodectl-command)
 - [How can I get notifications when my node goes offline?](#how-can-i-get-notifications-when-my-node-goes-offline)
 - [How can I install Ubuntu security updates on my system?](#how-can-i-install-ubuntu-security-updates-on-my-system)
 
@@ -161,7 +162,7 @@ After confirming your L0 is in **Ready** state, you can join your L1 with this c
 
 </details>
 
-## I'm getting the error "`INTERNAL ERROR: cannot create temporary directory`" when executing a nodectl command
+## I'm getting the error "INTERNAL ERROR: cannot create temporary directory" when executing a nodectl command
 
 This means you have a full disk. The fix should only be applied on mainnet, do NOT execute this command on any other environment and check with a teamlead first for further steps:
 
@@ -176,7 +177,7 @@ Command:
 sudo find /var/tessellation/dag-l0/data/snapshot/ -type f -mtime +30 -delete
 ```
 
-## I'm getting the error "`/usr/local/bin/nodectl: 1: Syntax error: "(" unexpected`" when executing a nodectl command
+## I'm getting the error "/usr/local/bin/nodectl: 1: Syntax error: "(" unexpected" when executing a nodectl command
 
 This indicates you used the wrong `wget` link to download nodectl. There are 2 different links available to install nodectl, that work on different CPU architectures.
 
