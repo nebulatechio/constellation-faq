@@ -69,14 +69,14 @@ This can have multiple causes:
 - **Your node ID is not whitelisted**: you can check this with the below command 
 
   <details>
-    <summary>command for integrationnet</summary>
+    <summary>click here to view the command for integrationnet</summary>
 
   <pre><code>sudo nodectl check_seedlist -p intnet-l0</code></pre>
 
   </details>
 
   <details>
-    <summary>command for testnet/mainnet</summary>
+    <summary>click here to view the command for testnet/mainnet</summary>
 
   <pre><code>sudo nodectl check_seedlist -p dag-l0</code></pre>
 
@@ -94,7 +94,7 @@ The workaround is to clear the incremental snapshots folder for that profile and
 > !! Be very cautious with these commands and **do not make any typos** as this permanently removes files from your system:
 
 <details>
-  <summary>View commands for testnet</summary>
+  <summary>click here to view the commands for testnet</summary>
 Execute these 4 commands one by one:
 
 <pre><code>sudo nodectl leave -p dag-l0
@@ -109,7 +109,7 @@ sudo nodectl restart -p all
 </details>
 
 <details>
-  <summary>View commands for integrationnet</summary>
+  <summary>click here to view the commands for integrationnet</summary>
 Execute these 4 commands one by one:
 
 <pre><code>sudo nodectl leave -p intnet-l0
@@ -128,14 +128,14 @@ sudo nodectl restart -p all
 If you see this on your **L0 profile**, you can join the network with this command:
 
 <details>
-  <summary>View command for testnet or mainnet</summary>
+  <summary>click here to view the command for testnet or mainnet</summary>
 
 <pre><code>sudo nodectl join -p dag-l0</code></pre>
 
 </details>
 
 <details>
-  <summary>View command for integrationnet</summary>
+  <summary>click here to view the command for integrationnet</summary>
 
 <pre><code>sudo nodectl join -p intnet-l0</code></pre>
 
@@ -148,14 +148,14 @@ If you see this on your **L1 profile**, first check the status of your L0 profil
 After confirming your L0 is in **Ready** state, you can join your L1 with this command:
 
 <details>
-  <summary>View command for testnet or mainnet</summary>
+  <summary>click here to view the command for testnet or mainnet</summary>
 
 <pre><code>sudo nodectl join -p dag-l1</code></pre>
 
 </details>
 
 <details>
-  <summary>View command for integrationnet</summary>
+  <summary>click here to view the command for integrationnet</summary>
 
 <pre><code>sudo nodectl join -p intnet-l1</code></pre>
 
