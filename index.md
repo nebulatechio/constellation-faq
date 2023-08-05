@@ -3,6 +3,7 @@
 - [How do I get started with setting up my node?](#how-do-i-get-started-with-setting-up-my-node)
 - [I'm trying to connect to my node but am getting the error "Connection Refused", "Timeout" or a black screen that is not responding](#im-trying-to-connect-to-my-node-but-am-getting-the-error-connection-refused-timeout-or-a-black-screen-that-is-not-responding)
 - [How can I check if my node is online and what do the different join states mean?](#how-can-i-check-if-my-node-is-online-and-what-do-the-different-join-states-mean)
+- [One of my profiles is stuck in "ApiNotReady" state. How can I proceed?](#one-of-my-profiles-is-stuck-in-apinotready-state-how-can-i-proceed)
 - [One of my profiles is stuck in "SessionStarted" state. How can I proceed?](#one-of-my-profiles-is-stuck-in-sessionstarted-state-how-can-i-proceed)
 - [One of my profiles is stuck in "WaitingForDownload" state. How can I proceed?](#one-of-my-profiles-is-stuck-in-waitingfordownload-state-how-can-i-proceed)
 - [One of my profiles is stuck in "ReadyToJoin" state. How can I proceed?](#one-of-my-profiles-is-stuck-in-readytojoin-state-how-can-i-proceed)
@@ -38,6 +39,7 @@ sudo nodectl status
 
 Here is the overview of the most common join states:
 
+- **ApiNotReady**: this means your node service isn't started. This usually occurs after you performed a reboot, since the services aren't started automatically. Check this [solution](#one-of-my-profiles-is-stuck-in-apinotready-state-how-can-i-proceed)
 - **SessionStarted**: this means your node is unable to join the cluster for some reason. Check this [solution](#one-of-my-profiles-is-stuck-in-sessionstarted-state-how-can-i-proceed)
 - **WaitingForDownload**: this means your node is unable to download the necessary snapshots from the cluster. Check this [solution](#one-of-my-profiles-is-stuck-in-waitingfordownload-state-how-can-i-proceed)
 - **DownloadInProgress**: this means your node is currently downloading the snapshot history. This can take some time depending on the amount of snapshots it needs to download. **No actions needed**
@@ -49,6 +51,17 @@ Here is the overview of the most common join states:
   ```
 <br>
 - **Ready**: this means your node is part of the network and online. All is good! **No actions needed**
+
+## One of my profiles is stuck in "ApiNotReady" state. How can I proceed?
+
+Restart your metagraph services with the following command:
+
+```
+sudo nodectl restart -p all
+```
+
+If this did not fix your problem, try rebooting your system and try the above command again after that. If it still does not work after that, get in touch with a teamlead for further troubleshooting.
+
 
 ## One of my profiles is stuck in "SessionStarted" state. How can I proceed?
 
@@ -96,13 +109,15 @@ The workaround is to clear the incremental snapshots folder for that profile and
 
 <details>
   <summary>click here to view the commands for testnet</summary>
-Execute these 4 commands one by one:
+Execute these 5 commands one by one:
 
 <pre><code>sudo nodectl leave -p dag-l0
 
 sudo nodectl leave -p dag-l1
 
 sudo rm -rf /var/tessellation/dag-l0/data/incremental_snapshot
+
+sudo rm -rf /var/tessellation/dag-l0/data/incremental_snapshot_tmp
 
 sudo nodectl restart -p all
 </code></pre>
@@ -111,13 +126,15 @@ sudo nodectl restart -p all
 
 <details>
   <summary>click here to view the commands for integrationnet</summary>
-Execute these 4 commands one by one:
+Execute these 5 commands one by one:
 
 <pre><code>sudo nodectl leave -p intnet-l0
 
 sudo nodectl leave -p intnet-l1
 
 sudo rm -rf /var/tessellation/intnet-l0/data/incremental_snapshot
+
+sudo rm -rf /var/tessellation/intnet-l0/data/incremental_snapshot_tmp
 
 sudo nodectl restart -p all
 </code></pre>
