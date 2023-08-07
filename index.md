@@ -103,7 +103,9 @@ This can have multiple causes:
 
 ## One of my profiles is stuck in "WaitingForDownload" state. How can I proceed?
 
-Wait some time to see if the status changes automatically, often it resolves itself. If it stays stuck in "WaitingForDownload" for an extensive amount of time, please inform your teamlead.
+Wait some time to see if the status changes automatically, it should eventually resolve itself. If it stays stuck in "WaitingForDownload" for an extensive amount of time, please inform your teamlead.
+
+> Don't try to fix this issue yourself using the `rm` commands that were previously communicated. This issue should be solved and shouldn't require any manual intervention anymore. Get in touch with your teamlead if you have any doubts.
 
 ## One of my profiles is stuck in "ReadyToJoin" state. How can I proceed?
 
