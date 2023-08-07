@@ -103,43 +103,7 @@ This can have multiple causes:
 
 ## One of my profiles is stuck in "WaitingForDownload" state. How can I proceed?
 
-The workaround is to clear the incremental snapshots folder for that profile and then restart the profiles. 
-
-> !! Be very cautious with these commands and **do not make any typos** as this permanently removes files from your system:
-
-<details>
-  <summary>click here to view the commands for testnet</summary>
-Execute these 5 commands one by one:
-
-<pre><code>sudo nodectl leave -p dag-l0
-
-sudo nodectl leave -p dag-l1
-
-sudo rm -rf /var/tessellation/dag-l0/data/incremental_snapshot
-
-sudo rm -rf /var/tessellation/dag-l0/data/incremental_snapshot_tmp
-
-sudo nodectl restart -p all
-</code></pre>
-
-</details>
-
-<details>
-  <summary>click here to view the commands for integrationnet</summary>
-Execute these 5 commands one by one:
-
-<pre><code>sudo nodectl leave -p intnet-l0
-
-sudo nodectl leave -p intnet-l1
-
-sudo rm -rf /var/tessellation/intnet-l0/data/incremental_snapshot
-
-sudo rm -rf /var/tessellation/intnet-l0/data/incremental_snapshot_tmp
-
-sudo nodectl restart -p all
-</code></pre>
-
-</details>
+Wait some time to see if the status changes automatically, often it resolves itself. If it stays stuck in "WaitingForDownload" for an extensive amount of time, please inform your teamlead.
 
 ## One of my profiles is stuck in "ReadyToJoin" state. How can I proceed?
 
