@@ -41,10 +41,11 @@ Here is the overview of the most common join states:
 
 - **ApiNotReady**: this means your node service isn't started. This usually occurs after you performed a reboot, since the services aren't started automatically. Check this [solution](#one-of-my-profiles-is-stuck-in-apinotready-state-how-can-i-proceed)
 - **SessionStarted**: this means your node is unable to join the cluster for some reason. Check this [solution](#one-of-my-profiles-is-stuck-in-sessionstarted-state-how-can-i-proceed)
-- **WaitingForDownload**: this means your node is unable to download the necessary snapshots from the cluster. Check this [solution](#one-of-my-profiles-is-stuck-in-waitingfordownload-state-how-can-i-proceed)
+- **WaitingForDownload**: this means not all snapshots have been downloaded yet on your node. A background process will start downloading snapshots when it detects this state, so it should transition to the "DownloadInProgress" state. If not, check this [solution](#one-of-my-profiles-is-stuck-in-waitingfordownload-state-how-can-i-proceed)
 - **DownloadInProgress**: this means your node is currently downloading the snapshot history. This can take some time depending on the amount of snapshots it needs to download. **No actions needed**
 - **ReadyToJoin**: this means your node is ready to join the network, but hasn't joined it yet. You'll need to manually join the network with [these steps.](#one-of-my-profiles-is-stuck-in-readytojoin-state-how-can-i-proceed)
-- **Observing**: this means your node has joined the network but is not actively participating to consensus yet. It observes the first couple of consensus rounds before actively participating. This state usually changes after a couple of minutes. **No actions needed** (unless it takes hours, if so, try a restart of your profiles with the command: 
+- **WaitingForObserving**: this means your node has finished downloading the snapshots and will about to transition to "Observing" state. **No actions needed**
+- **Observing**: this means your node has joined the network but is not actively participating to consensus yet. It observes the first couple of consensus rounds before actively participating. This state usually changes after a couple of minutes. **No actions needed** (unless it takes more than 30 minutes, if so, try a restart of your profiles with the command: 
 
   ```
   sudo nodectl restart -p all
