@@ -5,6 +5,7 @@
 - [I'm trying to connect to my node but am getting the error "No supported authentication methods available (server sent: public key)"](#im-trying-to-connect-to-my-node-but-am-getting-the-error-no-supported-authentication-methods-available-server-sent-public-key)
 - [I'm trying to connect to my node but am getting the error "Server refused our key"](#im-trying-to-connect-to-my-node-but-am-getting-the-error-server-refused-our-key)
 - [How can I check if my node is online and what do the different join states mean?](#how-can-i-check-if-my-node-is-online-and-what-do-the-different-join-states-mean)
+- [One of my profiles is stuck in "Ready (Off Cluster)" state. How can I proceed?](#one-of-my-profiles-is-stuck-in-ready-off-cluster-state-how-can-i-proceed)
 - [One of my profiles is stuck in "ApiNotReady" state. How can I proceed?](#one-of-my-profiles-is-stuck-in-apinotready-state-how-can-i-proceed)
 - [One of my profiles is stuck in "SessionStarted" state. How can I proceed?](#one-of-my-profiles-is-stuck-in-sessionstarted-state-how-can-i-proceed)
 - [One of my profiles is stuck in "DownloadInProgress" state. How can I proceed?](#one-of-my-profiles-is-stuck-in-downloadinprogress-state-how-can-i-proceed)
@@ -59,6 +60,8 @@ sudo nodectl status
 
 Here is the overview of the most common join states:
 
+- **Ready**: this means your node is part of the network and online. All is good! **No actions needed**
+- **Ready (off cluster)**: your node has forked. Check this [solution](#one-of-my-profiles-is-stuck-in-ready-off-cluster-state-how-can-i-proceed)
 - **ApiNotReady**: this means your node service isn't started. This usually occurs after you performed a reboot, since the services aren't started automatically. Check this [solution](#one-of-my-profiles-is-stuck-in-apinotready-state-how-can-i-proceed)
 - **SessionStarted**: this means the network cluster is rejecting your node from joining the network. Check this [solution](#one-of-my-profiles-is-stuck-in-sessionstarted-state-how-can-i-proceed)
 - **WaitingForDownload**: this means not all snapshots have been downloaded yet on your node. A background process will start downloading snapshots when it detects this state, so it should transition to the "DownloadInProgress" state. If not, check this [solution](#one-of-my-profiles-is-stuck-in-waitingfordownload-state-how-can-i-proceed)
@@ -70,10 +73,14 @@ Here is the overview of the most common join states:
   ```bash
   sudo nodectl restart -p all
   ```
-  
-<br />
 
-- **Ready**: this means your node is part of the network and online. All is good! **No actions needed**
+## One of my profiles is stuck in "Ready (Off Cluster)" state. How can I proceed?
+
+This means your node is active but is participating in consensus rounds on a forked minority network. Restart your metagraphs when you see this:
+
+```bash
+sudo nodectl restart -p all
+```
 
 ## One of my profiles is stuck in "ApiNotReady" state. How can I proceed?
 
