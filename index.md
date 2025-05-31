@@ -221,17 +221,7 @@ After confirming your L0 is in **Ready** state, you can join your L1 with this c
 
 ## I'm getting the error "INTERNAL ERROR: cannot create temporary directory" when executing a nodectl command
 
-This means you have a full disk. The fix should only be applied on mainnet, do NOT execute this command on any other environment and check with a teamlead first for further steps:
-
-> !! ONLY FOR MAINNET
-> If you encounter this issue on testnet/integrationnet, reach out in discord for further steps
-> !! Be very cautious with these commands and **do not make any typos** as this permanently removes files from your system
-
-Command:
-
-```bash
-sudo find /var/tessellation/dag-l0/data/snapshot/ -type f -mtime +30 -delete
-```
+This means you have a full disk. Check if you can clean obsolete files or check with a teamlead on the next steps.
 
 ## I'm getting the error "fnt-958" when executing a nodectl command
 
